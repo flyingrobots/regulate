@@ -1,0 +1,38 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.zed/
+
+# Environment and local overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Coverage and profiling
+*.profraw
+*.profdata
+lcov.info
+/coverage/
+
+# Logs and scratch
+*.log
+/tmp/
