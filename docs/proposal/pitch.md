@@ -139,6 +139,6 @@ The back half, the part that produces linter settings and the ledger, is not wri
 
 ## The ask
 
-A pilot spike: the smallest version that can fail. It takes one real policy, compiles it two ways, and compares the result against the hand-written checks it would replace. It is planned as 24 tasks, about 52 estimated hours. The [executive summary](executive-summary.md) lists the four pass criteria.
+A pilot spike: the smallest version that can fail. It takes one real policy, compiles it two ways, and compares the result against the hand-written checks it would replace. On 15 November 2026 it was planned as 25 tasks, about 54 estimated hours. The [executive summary](executive-summary.md) lists the four pass criteria.
 
 If it passes, there is a concrete case for the next stage. If it fails, the cost was the spike and the result is a clear reason not to build it.

@@ -128,7 +128,7 @@ The spike passes when all four of these hold:
 3. A second output for the same policy, a generated rules section for AI coding agents, takes less than one day to add.
 4. The coverage report shows at least one rule that is written down but not enforced, or enforced twice in different ways.
 
-The spike is planned as 24 tasks, about 52 estimated hours, in this repository's [issues](https://github.com/flyingrobots/regulate/issues). Each issue carries `issue-dag/2` frontmatter, so the dependency graph can be compiled from the issues themselves.
+The spike is planned as single-outcome tasks in this repository's [issues](https://github.com/flyingrobots/regulate/issues). [Issue #1](https://github.com/flyingrobots/regulate/issues/1) states the current task count and estimate. Each issue carries `issue-dag/2` frontmatter, so the dependency graph can be compiled from the issues themselves.
 
 ## Design documents
 

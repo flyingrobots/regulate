@@ -121,7 +121,7 @@ From rows 10 to 16, the GraphQL front end has six duties that Wesley does not pe
 
 None is required for the spike.
 
-- **Lower directive definitions.** A separate projection, not a change to Shape IR, so that existing hashes do not move. This would remove duty 1 and let other Wesley extensions validate their own directives.
+- **Lower directive definitions.** Wesley tracks this as `flyingrobots/wesley#772`. A separate projection, not a change to Shape IR, would keep existing hashes from moving. This would remove duty 1 and let other Wesley extensions validate their own directives.
 - **A multi-file lowering helper.** This would remove duty 6.
 
 The recommendation is to implement both duties in Regulate first and propose them to Wesley once their shape has held through one stage of real use.
@@ -542,7 +542,7 @@ Estimates are judgement, for one engineer. They are not measurements. The spike 
 
 | Stage | Deliverables | Exit criteria | Estimate |
 | --- | --- | --- | --- |
-| **0. Spike** | GraphQL front end that reads declarations; resolver; `clippy` and `scan` backends; `build` and `check`; one agent-rules output added afterwards. Argument validation covers only the bricks used. | The four criteria in the executive summary | About 52 hours in 24 tasks |
+| **0. Spike** | GraphQL front end that reads declarations; resolver; `clippy` and `scan` backends; `build` and `check`; one agent-rules output added afterwards. Argument validation covers only the bricks used. | The four criteria in the executive summary | About 54 hours in 25 tasks, as planned on 15 November 2026 |
 | **1. Internal adoption** | Full validation; waivers; `evidence` and `gates` backends; `verify`, `report`, `explain`, `diff`; the test plan in section 16 passing | Echo and Bunny run `check` and `verify` in CI. The Echo scripts and lists that Regulate replaces are deleted. | 2 to 3 weeks |
 | **2. Wider use** | External backend protocol; an ESLint backend; `agents` and `docs` backends; packs with digest pinning; suppression audit; SARIF | A third repository, in another language, adopts Regulate with no change to the core. Echo and Bunny share one determinism pack. | 3 to 4 weeks |
 | **3. Publication** | Documentation, importers, release packaging | Decided after stage 2, from the evidence in the landscape document | Not estimated |

@@ -6,7 +6,7 @@ Executive summary of a proposal for a tool that turns written engineering rules 
 
 ## Recommendation
 
-Run a pilot spike, then decide. The spike is planned as 24 tasks with about 52 estimated hours of work, 20 of them on the critical path. Do not commit to the full tool yet. Do not plan it as a commercial product.
+Run a pilot spike, then decide. On 15 November 2026 the spike was planned as 25 tasks with about 54 estimated hours of work, 20 of them on the critical path. Issue #1 in the repository holds the current figure. Do not commit to the full tool yet. Do not plan it as a commercial product.
 
 The spike takes one policy that already exists, Echo's ban on nondeterminism in `warp-core`, and compiles it from one source into the checks Echo already runs. The spike passes when all four of these hold:
 
@@ -77,7 +77,7 @@ The same tests found what Wesley does not do. It does not check a rule's argumen
 
 | Stage | Result | Estimated effort |
 | --- | --- | --- |
-| 0. Spike | One policy, two backends, pass or fail against the four criteria | About 52 hours in 24 tasks |
+| 0. Spike | One policy, two backends, pass or fail against the four criteria | About 54 hours in 25 tasks, as planned on 15 November 2026 |
 | 1. Internal adoption | Waivers, ledger, policy diff; Echo and Bunny run on it | 2 to 3 weeks |
 | 2. Wider use | Backends in any language, agent and docs output, shared rule packs | 3 to 4 weeks |
 | 3. Publication | Open-source release, and a decision about further investment | Decided after stage 2 |

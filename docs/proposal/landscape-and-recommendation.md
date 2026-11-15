@@ -249,7 +249,7 @@ This removes the duplication and adds expiring waivers. It does not generate lin
 
 ```mermaid
 flowchart TD
-  s0["Stage 0: spike<br/>about 52 hours"] --> q0{"All four spike<br/>criteria met?"}
+  s0["Stage 0: spike<br/>about 54 hours"] --> q0{"All four spike<br/>criteria met?"}
   q0 -- no --> pb["Stop. Build the fallback library."]
   q0 -- yes --> s1["Stage 1: adopt in Echo and Bunny<br/>2 to 3 weeks"]
   s1 --> q1{"Replaced scripts deleted,<br/>and the ledger used in review?"}
