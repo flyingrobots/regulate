@@ -1,0 +1,37 @@
+# Signatures of the bricks that ship with the tool (proposed).
+
+input RustPathBan {
+  path: String!
+  use: String
+}
+
+input PatternBan {
+  id: String!
+  regex: String!
+  why: String
+}
+
+"The repository paths a subject or part covers, as globs relative to the repository root."
+directive @governs(paths: [String!]!) on OBJECT | FIELD_DEFINITION
+
+"The role or team that answers for a subject."
+directive @owner(name: String!) on OBJECT
+
+"Rust APIs that governed code must not use."
+directive @rustDisallow(
+  methods: [RustPathBan!]
+  types: [RustPathBan!]
+  macros: [RustPathBan!]
+) on OBJECT | INTERFACE | FIELD_DEFINITION
+
+"Text patterns that governed files must not contain."
+directive @banPatterns(patterns: [PatternBan!]!) on OBJECT | INTERFACE | FIELD_DEFINITION
+
+"Files that must exist."
+directive @requiresPaths(paths: [String!]!) on OBJECT | INTERFACE | FIELD_DEFINITION
+
+"A command that must pass."
+directive @witness(name: String!, run: [String!]!) repeatable on OBJECT | INTERFACE | FIELD_DEFINITION
+
+"The CI gates a change to this subject must pass."
+directive @gates(required: [String!]!) on OBJECT | INTERFACE

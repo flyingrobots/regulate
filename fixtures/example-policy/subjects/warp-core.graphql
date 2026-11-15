@@ -1,0 +1,10 @@
+"""
+The simulation kernel. Two replays of one transcript must produce identical
+state hashes.
+"""
+type WarpCore implements Deterministic
+  @governs(paths: ["crates/warp-core/**"])
+  @owner(name: "Architect")
+  @requiresPaths(paths: ["crates/warp-core/tests/determinism_audit.rs"])
+  @witness(name: "dind", run: ["cargo", "xtask", "dind"])
+  @gates(required: ["G1", "G2", "G3", "G4"])

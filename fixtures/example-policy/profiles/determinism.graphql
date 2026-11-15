@@ -1,0 +1,28 @@
+"""
+Governed code must not read the wall clock. A replay supplies time as data;
+a clock read makes two runs of the same input diverge.
+"""
+interface NoWallClock
+  @rustDisallow(methods: [
+    { path: "std::time::SystemTime::now", use: "a caller-supplied timestamp" },
+    { path: "std::time::Instant::now", use: "a caller-supplied tick" }
+  ])
+  @banPatterns(patterns: [
+    { id: "time-system", regex: "\\bSystemTime::now\\b" },
+    { id: "time-instant", regex: "\\bInstant::now\\b" }
+  ])
+
+"""
+Governed code must not use containers whose iteration order varies between
+runs. Unordered iteration changes hashes and replay results.
+"""
+interface OrderedContainersOnly
+  @rustDisallow(types: [
+    { path: "std::collections::HashMap", use: "BTreeMap or IndexMap" },
+    { path: "std::collections::HashSet", use: "BTreeSet or IndexSet" }
+  ])
+
+"""
+Everything a replay-critical crate must satisfy.
+"""
+interface Deterministic implements NoWallClock & OrderedContainersOnly
