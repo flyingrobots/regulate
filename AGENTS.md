@@ -22,6 +22,8 @@ Work is planned as GitHub issues with `issue-dag/2` frontmatter. Issue #1 is
 the spike's container. Take a task from the open frontier: an open task whose
 `.blocked_by` issues are all closed.
 
+- Open a new task with the Task issue template, which carries the frontmatter
+  and the six body sections.
 - One task is one outcome and one pull request. If a task turns out to hold
   two outcomes, stop and propose a split.
 - A task's body is its specification. Meet every item under Acceptance, and
@@ -40,6 +42,10 @@ the spike's container. Take a task from the open frontier: an open task whose
 
 Echo is read-only. Work on a copy of its files, and leave the checkout as you
 found it.
+
+A test that needs Echo takes the path of a checkout from the environment
+variable `REGULATE_ECHO_CHECKOUT`, and is skipped with a message when the
+variable is unset.
 
 ## Code
 
