@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Keep in step with AGENTS.md and scripts/check-example-policy.sh.
+  WESLEY_VERSION: 0.3.0-alpha.3
+
+jobs:
+  example-policy:
+    name: Example policy lowers
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Restore the Wesley binary
+        id: wesley-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/wesley
+          key: wesley-cli-${{ env.WESLEY_VERSION }}-${{ runner.os }}-${{ runner.arch }}
+      - name: Install Wesley
+        if: steps.wesley-cache.outputs.cache-hit != 'true'
+        run: cargo install --locked wesley-cli --version "$WESLEY_VERSION"
+      - name: Check the example policy
+        run: scripts/check-example-policy.sh
+
+  shell:
+    name: Shell lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse
+        run: bash -n scripts/check-example-policy.sh
+      - name: ShellCheck
+        run: shellcheck --severity=style scripts/check-example-policy.sh
